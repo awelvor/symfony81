@@ -16,7 +16,7 @@ class Euros
     #[ORM\Column(length: 50)]
     private ?string $compte = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 10)]
     private ?string $date = null;
 
     #[ORM\Column(length: 50)]
@@ -28,7 +28,7 @@ class Euros
     #[ORM\Column(nullable: true)]
     private ?float $debit = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
+    #[ORM\Column(length: 10, nullable: true)]
     private ?string $banque = null;
 
     #[ORM\Column(length: 50, nullable: true)]
