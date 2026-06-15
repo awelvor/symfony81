@@ -31,7 +31,7 @@ class Euros
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $banque = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
+    #[ORM\Column(length: 50)]
     private ?string $budget = null;
 
     #[ORM\Column(nullable: true)]
@@ -122,7 +122,7 @@ class Euros
         return $this->budget;
     }
 
-    public function setBudget(?string $budget): static
+    public function setBudget(string $budget): static
     {
         $this->budget = $budget;
 
