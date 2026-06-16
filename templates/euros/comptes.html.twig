@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Euros index{% endblock %}
+
+{% block body %}
+<div class="container-fluid text-bg-light">
+<div class="row">
+
+<div class="col-2">
+<h1>comptes</h1>
+<table class="table table-sm table-hover">
+{% for euro in euros3 %}
+<tr>
+<td class="text-start"><a href='http://localhost:8000/euros/comptes/0/{{euro.compte}}'>{{euro.compte}}</a></td>
+<td class="text-end">{{ euro.solde|number_format(2,'.','')}}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+<div class="col-8">
+<h1>{{compte}}</h1>
+<table class="table table-sm table-hover">
+        <thead>
+            <tr>
+               
+                <th>Date</th>
+                <th>Libelle</th>
+                <th>Credit</th>
+                <th>Debit</th>
+                <th>Banque</th>
+                <th>Budget</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for euro in euros1 %}
+            <tr>
+               
+                <td>{{ euro.date|date("d/m/Y") }}</td>
+                <td><a href='http://localhost:8000/euros/comptes/{{euro.id}}/{{euro.compte}}'>{{ euro.libelle }}</a></td>
+                {% if euro.credit > 0 %}<td class="text-end">{{ euro.credit |number_format(2,'.','') }}</td>{% else %}<td></td>{% endif %}
+                {% if euro.debit > 0 %}<td class="text-end">{{ euro.debit |number_format(2,'.','') }}</td>{% else %}<td></td>{% endif %}
+                <td></td>
+                <td>{{ euro.budget }}</td>
+                
+            </tr>
+        {% endfor %}
+        <tr class="bg-danger"><td class="bg-light text-light" colspan=6>.</td></tr>
+        {% for euro in euros2 %}
+            <tr>
+                
+                <td>{{ euro.date|date("d/m/Y") }}</td>
+                
+                <td><a href='http://localhost:8000/euros/libelles/{{euro.libelle}}'>{{ euro.libelle}}</a></td>
+                
+                {% if euro.credit > 0 %}<td class="text-end">{{ euro.credit |number_format(2) }}</td>{% else %}<td></td>{% endif %}
+                {% if euro.debit > 0 %}<td class="text-end">{{ euro.debit |number_format(2) }}</td>{% else %}<td></td>{% endif %}
+                <td>{{ euro.banque|date("d/m/Y") }}</td>
+                <td>{{ euro.budget }}</td>
+                <td><a href='http://localhost:8000/euros/cbid/{{euro.cbid}}'>{{ euro.cbid}}</a></td>
+                
+            </tr>
+        {% endfor %}
+        
+        
+        </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+{% endblock %}
