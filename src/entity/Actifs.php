@@ -67,6 +67,9 @@ class Actifs
     #[ORM\Column(nullable: true)]
     private ?int $c17 = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $c18 = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -284,6 +287,17 @@ class Actifs
     public function setC17(?int $c17): static
     {
         $this->c17 = $c17;
+
+        return $this;
+    }
+    public function getC18(): ?int
+    {
+        return $this->c18;
+    }
+
+    public function setC18(?int $c18): static
+    {
+        $this->c18 = $c18;
 
         return $this;
     }
