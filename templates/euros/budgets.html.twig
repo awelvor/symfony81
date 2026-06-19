@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Euros index{% endblock %}
+
+{% block body %}
+    <h1>Budgets</h1>
+    <div class="row">
+    
+    <div class="col col-3">
+    <table class="table table-sm table-hover col-3">
+    <thead>
+            <tr>
+               <th>budget</th>
+                <th>credit</th>
+                <th>debit</th>
+                <th>solde</th>
+                </tr>
+        </thead>
+        <tbody>
+        {% for annuel in annuels %}
+            <tr>
+               <td><a href='http://localhost:8000/euros/budgets/{{annuel[0][1]}}/janvier{{annuel[0][1]}}'>{{ annuel[0].1 }}</a></td>
+                <td>{{ annuel[0].credit }}</td>
+                <td>{{ annuel[0].debit }}</td>
+                <td>{{ annuel[0].solde|number_format(2) }}</td>
+                </tr>
+         {% endfor %}
+         </tbody>
+       </table>
+    </div>
+   
+    <div class="col col-3">
+    <table class="table table-sm table-hover col-3">
+    <thead>
+            <tr>
+               <th>budget</th>
+                <th>credit</th>
+                <th>debit</th>
+                <th>solde</th>
+                </tr>
+        </thead>
+        <tbody>
+        {% for mensuel in mensuels %}
+         
+            <tr>
+               <td><a href="http://localhost:8000/euros/budgets/{{year}}/{{mensuel.budget}}">{{mensuel.budget}}</a></td>
+                <td>{{ mensuel.credit }}</td>
+                <td>{{ mensuel.debit }}</td>
+                <td>{{ mensuel.solde }}</td>
+                </tr>
+        {% endfor %}
+        </tbody>
+       </table>
+    </div>
+    
+    
+
+<div class="col col-6">
+<table class="table table-sm table-hover">
+        <thead>
+            <tr>
+               <th>Date</th>
+                <th>Libelle</th>
+                <th>Credit</th>
+                <th>Debit</th>
+                <th>Banque</th>
+             
+                </tr>
+        </thead>
+        <tbody>
+        {% for euro in euros22 %}
+            <tr>
+               <td>{{ euro.date|date("d/m/Y") }}</td>
+                <td>{{ euro.libelle }}</td>
+                {% if euro.credit > 0 %}<td class="text-end">{{ euro.credit |number_format(2,'.','') }}</td>{% else %}<td></td>{% endif %}
+                {% if euro.debit > 0 %}<td class="text-end">{{ euro.debit |number_format(2,'.','') }}</td>{% else %}<td></td>{% endif %}
+                <td>{% if euro.banque %}{{ euro.banque|date("d/m/Y") }}{% endif %}</td>
+               
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+      </div>
+ </div>
+      
+    </div>
+
+{% endblock %}

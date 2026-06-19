@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Euros index{% endblock %}
+
+{% block body %}
+    <h1>Cheques</h1>
+    
+   
+          <table class="table table-sm table-hover">
+       
+        <tbody>
+        {% for euro in euros %}
+            <tr>
+               
+                <td>{{ euro.cheque}}</td>
+                <td>{{ euro.date|date("d/m/Y") }}</td>
+                <td><a href='http://localhost:8000/euros/comptes/{{euro.id}}/{{euro.compte}}'>{{ euro.libelle }}</a></td>
+               
+                <td>{{ euro.debit }}</td>
+                <td>{% if euro.banque %}{{ euro.banque|date("d/m/Y") }}{% endif %}</td>
+                <td>{{ euro.budget }}</td>
+                
+            </tr>
+        {% endfor %}
+       
+        
+        
+        </tbody>
+    </table>
+      
+   
+
+{% endblock %}

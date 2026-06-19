@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Euros{% endblock %}
+
+{% block body %}
+    
+
+   <h1>Virement</h1>
+   
+   
+ <div class="col-6">
+ 
+    <form action="#" method='post' name="myform">
+  <div class="mb-3">
+   <select class="form-control" name="emetteur" >
+    <option value="ccsg">ccsg</option>
+    <option value="cvi philippe">cvi philippe</option>
+    <option value="cvi nicole">cvi nicole</option>
+    <option value="cc boursorama">cc boursorama</option>
+    <option value="cb boursorama">cb boursorama</option>
+    <option value="livret A philippe">livret A philippe</option>
+    </select>
+    <select class="form-control" name="destinataire" >
+    <option value="ccsg">ccsg</option>
+    <option value="cvi philippe">cvi philippe</option>
+    <option value="cvi nicole">cvi nicole</option>
+    <option value="cc boursorama">cc boursorama</option>
+    <option value="cb boursorama">cb boursorama</option>
+    <option value="livret A philippe">livret A philippe</option>
+   </select>
+   </div>
+  <div class="mb-3"><input type="text" class="form-control" name="date" value={{"now"|date("Y-m-d")}}></div>
+  <div class="mb-3"><label class="form-label">montant</label><input type="text" class="form-control" name="montant" value="0.0"></div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div>
+    
+    
+{% endblock %}

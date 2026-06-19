@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Euros index{% endblock %}
+
+{% block body %}
+    <h1>CBid</h1>
+    <div class="row">
+     <div class="col col-3">
+    <table class="table table-sm table-hover col-3">
+    <thead>
+            <tr>
+               <th>cbid</th>
+                <th>solde</th>
+                </tr>
+        </thead>
+        <tbody>
+    
+   
+          
+        {% for euro in euros %}
+            <tr>
+               
+               
+               
+                <td class="text-start"><a href='http://localhost:8000/euros/cbid/{{ euro.cbid }}'>{{ euro.cbid }}</a></td>
+               
+                <td class="text-end">{{ euro.solde|number_format(2,'.','') }}</td>
+               
+                
+            </tr>
+        {% endfor %}
+       
+        
+        
+        </tbody>
+        </table>
+ </div>
+ 
+  {% include 'partials/detail.html.twig' %}
+   
+ 
+ 
+ 
+ </div>
+      
+   
+
+{% endblock %}

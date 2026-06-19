@@ -1,0 +1,331 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actifs index{% endblock %}
+
+{% block body %}
+    <h1>Actifs index </h1
+   <h5 class="text-end"><a href="http://localhost:8000/euros/actifs/new" class="button">Nouvelle ligne</a></h5>
+    
+    <table class="table table-sm table-hover">
+    <tr> 
+    <td><button type="button" class="btn btn-link">Date</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr1">AVie P.</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr2">PEA N..</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr3">SEQUOIA N.</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr4">SEQUOIA N.</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr5">CTO P.</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr6">CEFP J.</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr7">PEA P.</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr8">AVie P.</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr9">PEA-PME N.</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr10">CTO N.</button></td>
+    <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gr11">AVie N.</button></td>
+    
+    <td><button type="button" class="btn btn-link">Total</button></td>
+    </tr>
+     {% for actif in actifs %}
+     <tr>
+     <td>{{ actif.date }}</td>
+     <td>{{ actif.c1 }}</td>
+     <td>{{ actif.sg_pea_ni }}</td>
+     <td>{{ actif.sg_sequoia_ni }}</td>
+     <td>{{ actif.c6}}</td>
+     <td>{{ actif.c7}}</td>
+     <td>{{ actif.c8}}</td>
+     <td>{{ actif.c9}}</td>
+     <td>{{ actif.c10}}</td>
+     <td>{{ actif.c11}}</td>
+     <td>{{ actif.c13}}</td>
+     <td>{{ actif.c14}}</td>
+     <td>{{ actif.total}}</td>
+     </tr>
+     {% endfor %}
+    </table>
+
+   
+
+<!-- Modal -->
+<div class="modal fade" id="gr1" >
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5" id="exampleModalLabel">Sequoia P.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+ <div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td>Date</td>
+ <td>Sequoia P.</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td>{{ actif.date }}</td>
+    <td>{{ actif.c1 }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+      </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="gr2" >
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5" id="exampleModalLabel">PEA N.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+ <div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td>Date</td>
+ <td>Titres</td>
+ <td>Espèces</td>
+ <td>Total</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td>{{ actif.date }}</td>
+    <td>{{ actif.c2 }}</td>
+    <td>{{ actif.c3 }}</td>
+    <td>{{ actif.sg_pea_ni }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+      </div>
+  </div>
+</div>  
+   
+<!-- Modal -->
+
+<div class="modal fade " id="gr3">
+<div class="modal-dialog modal-lg modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5" id="exampleModalLabel">SEQUOIA N.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+<div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td class="text-end">Date</td>
+<td class="text-end">Euros</td>
+ <td class="text-end">QUATTRO3</td>
+ <td class="text-end">Monétaires</td>
+ <td class="text-end">SG Taux Fixe</td>
+ <td class="text-end">Total</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td class="text-end">{{ actif.date }}</td>
+    <td class="text-end">{{ actif.c4 }}</td>
+    
+    {% if actif.c5 > 0 %}<td class="text-end">{{ actif.c5 }}</td>{% else %}<td></td>{% endif %}
+    {% if actif.c15 > 0 %}<td class="text-end">{{ actif.c15 }}</td>{% else %}<td></td>{% endif %}
+    {% if actif.c16 > 0 %}<td class="text-end">{{ actif.c16 }}</td>{% else %}<td></td>{% endif %}
+    
+    <td class="text-end">{{ actif.sg_sequoia_ni }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+ </div>
+  </div>
+ <!-- Modal -->
+
+<div class="modal fade " id="gr4">
+<div class="modal-dialog modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5" id="exampleModalLabel">SEQUOIA N.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+<div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td>Date</td>
+<td>QUIETUDE3</td>
+ 
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td>{{ actif.date }}</td>
+    <td>{{ actif.c6 }}</td>
+    
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+ </div>
+  </div>
+  
+  <!-- Modal -->
+<div class="modal fade" id="gr5" >
+<div class="modal-dialog modal-content">
+
+<div class="modal-header">
+<h2 class="modal-title fs-5">CTO P. </h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+ <div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td>Date</td>
+ <td>CTO P.</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td>{{ actif.date }}</td>
+    <td>{{ actif.c7 }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+      </div>
+  </div>
+  
+  <!-- Modal -->
+<div class="modal fade" id="gr6" >
+<div class="modal-dialog modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5">CEF J.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+ <div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td>Date</td>
+ <td>CEF J.</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td>{{ actif.date }}</td>
+    <td>{{ actif.c8 }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+      </div>
+  </div>
+  
+  <!-- Modal -->
+<div class="modal fade" id="gr7" >
+<div class="modal-dialog modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5">PEA P.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+ <div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td class="text-start">Date</td>
+ <td class="text-end">PEA P.</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td class="text-start">{{ actif.date }}</td>
+    <td class="text-end">{{ actif.c9 }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+      </div>
+  </div>
+<!-- Modal -->
+<div class="modal fade" id="gr8" >
+<div class="modal-dialog modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5">AVie P.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+ <div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td>Date</td>
+ <td>AVie P.</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td>{{ actif.date }}</td>
+    <td>{{ actif.c10}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+      </div>
+  </div>
+<!-- Modal -->
+<div class="modal fade" id="gr9" >
+<div class="modal-dialog modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5">PEA-PME N.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+ <div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td>Date</td>
+ <td>PEA_PME N.</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td>{{ actif.date }}</td>
+    <td>{{ actif.c11}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+      </div>
+  </div>
+<!-- Modal -->
+<div class="modal fade" id="gr10" >
+<div class="modal-dialog modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5">CTO N.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+ <div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td>Date</td>
+ <td>CTO N.</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td>{{ actif.date }}</td>
+    <td>{{ actif.c13 }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+      </div>
+  </div>
+<!-- Modal -->
+<div class="modal fade" id="gr11" >
+<div class="modal-dialog modal-content">
+<div class="modal-header">
+<h2 class="modal-title fs-5">AVie N.</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+</div>
+ <div class="modal-body">
+ <table class="table table-sm table-hover">
+ <tr>
+ <td>Date</td>
+ <td>AVie N.</td>
+ </tr>
+ {% for actif in actifs %}
+    <tr>
+    <td>{{ actif.date }}</td>
+    <td>{{ actif.c14 }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+      </div>
+      </div>
+  </div>
+
+    
+
+   
+{% endblock %}
